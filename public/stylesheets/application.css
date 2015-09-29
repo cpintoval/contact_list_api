@@ -1,0 +1,42 @@
+#container { 
+  width: 960px; 
+  margin: 10px auto; 
+}
+
+#getContacts { 
+  padding: 8px 16px; 
+  background-color: red; 
+  color: white; 
+  border: 1px solid whitesmoke; 
+}
+
+#createContact {
+  padding: 8px 16px;
+  background-color: blue;
+  color: white;
+  border: 1px solid whitesmoke;
+  margin-top: 25px;
+}
+
+#contacts { 
+  width: 90%; 
+  margin-top: 50px; 
+  border: 1px solid black; 
+}
+
+#contacts th { 
+  background-color: black; 
+  color: white; 
+  font-weight: bold; 
+}
+
+#contacts td { 
+  text-align: center; 
+  border: 1px solid black; 
+}
+
+#contacts td, #contacts th { 
+  padding: 5px; 
+}
+
+.hide { display: none; }
