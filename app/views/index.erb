@@ -1,29 +1,36 @@
 <section id="container">
-  <h1>Contact List App</h1>
-
-  <button id="getContacts">Get Contacts</button><br>
-
-  <div id="contactForm">
-    <form action="">
-      <input type="text" id="firstname" placeholder="First Name">
-      <input type="text" id="lastname" placeholder="Last Name">
-      <input type="email" id="email" placeholder="Email">
-      <button id="createContact">Add a Contact</button>
-    </form>
+  <div class="row" id="navbar">
+    <div class="six columns">
+      <div id="searchForm">
+        <form action="">
+          <input type="text" id="query" placeholder="Search Contacts">
+          <button id="searchContact">Search</button>
+        </form>
+      </div>
+      <div id="contactForm" class="hide">
+        <form action="">
+          <input type="text" id="firstname" placeholder="First Name">
+          <input type="text" id="lastname" placeholder="Last Name">
+          <input type="email" id="email" placeholder="Email">
+          <button id="createContact">Add a Contact</button>
+        </form>
+      </div>
+    </div>
+    <div class="six columns"></div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <section id="results" class="hide">
+        <table id="contacts" class="u-full-width">
+          <tbody></tbody>
+        </table>
+      </section>
+    </div>
+    <div class="six columns">
+      
+    </div>
   </div>
 
-  <section id="results" class="hide">
-    <table id="contacts">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
-  </section>
+  <!-- <button id="getContacts">Get Contacts</button><br> -->
+
 </section>

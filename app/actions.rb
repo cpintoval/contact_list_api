@@ -4,7 +4,11 @@ get '/' do
 end
 
 get '/contacts' do
-  Contact.all.to_json
+  if params[:query]
+    Contact.query_match(params[:query]).to_json
+  else
+    Contact.all.to_json
+  end
 end
 
 post '/contacts/create' do

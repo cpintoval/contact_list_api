@@ -2,17 +2,17 @@
 //and callback functions.
 var handlers = {
 
-  getContacts: function() {
-    $.getJSON('/contacts', handlers.processContacts);
+  getContacts: function(query) {
+    $.getJSON('/contacts', {query: query}, handlers.processContacts);
   },
 
   processContacts: function(data) {
     var table = $('#contacts').find('tbody').empty();
     $.each(data, function(index, contact) {
       var tr = $('<tr>').appendTo(table);
-      $('<td>').text(contact.firstname).appendTo(tr);
-      $('<td>').text(contact.lastname).appendTo(tr);
-      $('<td>').text(contact.email).appendTo(tr);
+      $('<td>').text(contact.firstname + " " + contact.lastname).appendTo(tr);
+      // $('<td>').text(contact.lastname).appendTo(tr);
+      // $('<td>').text(contact.email).appendTo(tr);
     });
     $('#results').removeClass('hide');
   },
@@ -34,11 +34,19 @@ var handlers = {
     else {
       alert("There was an error.");
     }
+  },
+
+  searchContact: function(event) {
+    event.preventDefault();
+    var query = $('#query').val();
+    handlers.getContacts(query);
   }
 };
 
 // Function that assigns the button to its specific handler.
 $(function() {
-  $('#getContacts').on('click', handlers.getContacts);
+  // $('#getContacts').on('click', handlers.getContacts);
+  handlers.getContacts();
   $('#createContact').on('click', handlers.addContact);
+  $('#searchContact').on('click', handlers.searchContact);
 });
