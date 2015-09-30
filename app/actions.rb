@@ -23,3 +23,16 @@ post '/contacts/create' do
 
   response.to_json
 end
+
+get '/contacts/:id' do
+  response = Hash.new
+  response[:result] = false
+  contact = Contact.find(params[:id])
+
+  if contact
+    response[:result] = true
+    response[:contact] = contact
+  end
+
+  response.to_json
+end

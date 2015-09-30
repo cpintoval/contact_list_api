@@ -12,3 +12,12 @@ body {
 .hide { 
   display: none;
 }
+
+#query {
+  width: 80%;
+}
+
+#details {
+  /*border: 5px solid black;*/
+  text-align: center;
+}

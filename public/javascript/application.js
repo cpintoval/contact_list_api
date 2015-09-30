@@ -9,12 +9,11 @@ var handlers = {
   processContacts: function(data) {
     var table = $('#contacts').find('tbody').empty();
     $.each(data, function(index, contact) {
-      var tr = $('<tr>').appendTo(table);
+      var tr = $('<tr>').addClass('contact').attr('id', contact.id).appendTo(table);
       $('<td>').text(contact.firstname + " " + contact.lastname).appendTo(tr);
       // $('<td>').text(contact.lastname).appendTo(tr);
       // $('<td>').text(contact.email).appendTo(tr);
     });
-    $('#results').removeClass('hide');
   },
 
   addContact: function(event) {
@@ -40,6 +39,22 @@ var handlers = {
     event.preventDefault();
     var query = $('#query').val();
     handlers.getContacts(query);
+  },
+
+  clickContact: function() {
+    $.getJSON('/contacts/' + $(this).attr('id'), handlers.showContact);
+  },
+
+  showContact: function(data) {
+    if (data.result) {
+      var contact = data.contact;
+      $('#fullname').text(contact.firstname + ' ' + contact.lastname);
+      $('#email').text(contact.email);
+      $('#details').removeClass('hide');
+    }
+    else {
+      alert("Contact not found on the database.");
+    }
   }
 };
 
@@ -49,4 +64,5 @@ $(function() {
   handlers.getContacts();
   $('#createContact').on('click', handlers.addContact);
   $('#searchContact').on('click', handlers.searchContact);
+  $(document).on('click', '.contact',handlers.clickContact);
 });

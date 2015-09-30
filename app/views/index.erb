@@ -1,7 +1,7 @@
 <section id="container">
   <div class="row" id="navbar">
     <div class="six columns">
-      <div id="searchForm">
+      <div id="searchForm" class="u-full-width">
         <form action="">
           <input type="text" id="query" placeholder="Search Contacts">
           <button id="searchContact">Search</button>
@@ -20,17 +20,22 @@
   </div>
   <div class="row">
     <div class="six columns">
-      <section id="results" class="hide">
+      <section id="results">
         <table id="contacts" class="u-full-width">
           <tbody></tbody>
         </table>
       </section>
     </div>
     <div class="six columns">
-      
+      <section id="details" class="hide">
+        <div id="header">
+          <i class="fa fa-user fa-5x"></i>
+          <h1 id="fullname"></h1>
+          <h2 id="email"></h2>
+        </div>
+      </section>
     </div>
   </div>
-
   <!-- <button id="getContacts">Get Contacts</button><br> -->
 
 </section>
